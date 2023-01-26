@@ -10,30 +10,63 @@ namespace MentorConsoleApp
     {
         static void Main(string[] args)
         {
+            Car[] carList = new Car[10];
+
+            for (int i = 0; i < 10; i++)
+            {
+                carList = new myStaticClass();
+            }
+
+            var carList = new List<Car>();
+
+            int counter = 0;
+            while (counter < 10)
+            {
+                carList.Add(CreateCar());
+
+                counter++;
+            }
+        }
+
+        public static Car CreateCar()
+        {
             var myCar = new Car();
 
             Console.WriteLine($"Velocity: {myCar.GetVelocity()}");
-            Console.WriteLine($"Velocity: {myCar.GetDirection()}");
-            Console.WriteLine($"Velocity: {myCar.GetGasLevel()}");
-            Console.WriteLine($"Velocity: {myCar.GetColor()}");
-            Console.WriteLine($"Velocity: {myCar.GetCarType()}");
+            Console.WriteLine($"Direction: {myCar.GetDirection()}");
+            Console.WriteLine($"GasLevel: {myCar.GetGasLevel()}");
+            Console.WriteLine($"Color: {myCar.GetColor()}");
+            Console.WriteLine($"CarType: {myCar.GetCarType()}");
+            Console.WriteLine();
+
+            return myCar;
         }
-
-
-
-
     }
 }
 
+public class MyStaticClass
+{
+    public static int GetRandomNumber(int min, int max)
+    {
+        var random = new Random();
+        return random.Next(min, max);
+    }
+
+}
+    
+
+
+// Class
 public class Car
 {
-    public Car()
+    // Constructor
+    public Car(int _velocity = 0, string _direction = "noDirection", string _gasLevel = "full", string _color = "Black", string _carType = "Sedan")
     {
-        Velocity = 0;
-        Direction = "noDirection";
-        GasLevel = "full";
-        Color = "red";
-        CarType = "sedan";
+        Velocity = _velocity;
+        Direction = _direction;
+        GasLevel = _gasLevel;
+        Color = _color;
+        CarType = _carType;
 
         Console.WriteLine($"New Car Object Created: {CarType}");
     }
@@ -54,7 +87,7 @@ public class Car
     {
         CarType = carType;
     }
-    
+
     public int GetVelocity()
     {
         return Velocity;
