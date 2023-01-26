@@ -10,13 +10,6 @@ namespace MentorConsoleApp
     {
         static void Main(string[] args)
         {
-            Car[] carList = new Car[10];
-
-            for (int i = 0; i < 10; i++)
-            {
-                carList = new myStaticClass();
-            }
-
             var carList = new List<Car>();
 
             int counter = 0;
